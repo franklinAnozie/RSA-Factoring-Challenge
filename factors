@@ -16,6 +16,7 @@ def factorize():
                 break
         else:
             print("{}={}*1".format(number, number))
+    file.close()
 
 
 if __name__ == "__main__":
