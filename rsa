@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+from sys import argv
+from datetime import datetime as dt
+
+
+def rsa():
+    argc = len(argv)
+    if argc != 2:
+        print("Usage: ./factors <file>")
+        exit(1)
+    file = open(argv[1], "r")
+
+    for line in file:
+        number = int(line.strip())
+        i = 2
+        while i < ((number // 2) + 1):
+            if i == 2:
+                if number % i == 0:
+                    print("{}={}*{}".format(number, number // i, i))
+                    break
+                else:
+                    i += 1
+            else:
+                if number % i == 0:
+                    print("{}={}*{}".format(number, number // i, i))
+                    break
+                else:
+                    i += 2
+        else:
+            print("{}={}*1".format(number, number))
+    file.close()
+
+
+if __name__ == "__main__":
+    rsa()
